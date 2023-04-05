@@ -8,14 +8,14 @@ const TasksList = () => {
   const navigate = useNavigate();
 
   const loadTasks = async () => {
-    const response = await fetch("http://pruebainein2.up.railway.app/tasks");
+    const response = await fetch("https://pruebainein2.up.railway.app/tasks");
     const data = await response.json();
     setTasks(data);
   };
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://pruebainein2.up.railway.app/tasks/${id}`, {
+      await fetch(`https://pruebainein2.up.railway.app/tasks/${id}`, {
         method: "DELETE",
       });
       setTasks(tasks.filter((task) => task.id !== id));
