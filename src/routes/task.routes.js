@@ -1,7 +1,7 @@
 const { Router } = require('express');
 
 
-const {postFile, getAllTasks, getTask, postTask, deleteTask, updateTask} = require('../controlles/task.controllers')
+const { getAllTasks, getTask, postTask, deleteTask, updateTask} = require('../controlles/task.controllers')
 
 const router = Router()
 

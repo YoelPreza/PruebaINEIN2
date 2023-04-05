@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import DeleteModal from "./DeleteModal";
 import { useNavigate } from "react-router-dom";
 import { Button, Card, CardContent, Typography } from "@mui/material";
 
@@ -7,14 +8,14 @@ const TasksList = () => {
   const navigate = useNavigate();
 
   const loadTasks = async () => {
-    const response = await fetch("http://pruebainein2.up.railway.app/tasks");
+    const response = await fetch("http://localhost:4000/tasks");
     const data = await response.json();
     setTasks(data);
   };
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://pruebainein2.up.railway.app/tasks/${id}`, {
+      await fetch(`http://localhost:4000/tasks/${id}`, {
         method: "DELETE",
       });
       setTasks(tasks.filter((task) => task.id !== id));
