@@ -2,6 +2,10 @@ const express = require ('express');
 const morgan = require('morgan');
 const cors = require('cors')
 
+const {config} = require("dotenv")
+config()
+const PORT = process.env.PORT || 4001;
+
 const taskRoutes = require("./routes/task.routes")
 
 const app = express();
@@ -19,5 +23,7 @@ app.use((err, req, res, next)=>{
     })
 })
 
-app.listen(4000)
-console.log('Server on port 4000')
+app.listen(PORT, ()=> {
+    console.log(`Server on port ${PORT}`)
+
+})
